@@ -6,8 +6,8 @@ import qrcode from '../assets/images/footerImages/qrcode.png';
 
 const Footer = () => {
     return (
-        <footer className="bg-black text-white py-12 px-4 sm:px-6 lg:px-0">
-            <div className="max-w-[1170px] mx-auto flex flex-col gap-10 md:flex-row md:justify-between flex-wrap">
+        <footer className=" bg-black text-white py-12 px-4 sm:px-6 lg:px-0">
+            <div className="max-w-[90%] mx-auto flex flex-col gap-10 md:flex-row md:justify-between flex-wrap">
 
                 {/* Column 1: Exclusive */}
                 <div className="max-w-[200px] w-full md:w-auto">

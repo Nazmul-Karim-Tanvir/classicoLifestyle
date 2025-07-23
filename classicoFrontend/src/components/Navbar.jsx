@@ -36,7 +36,7 @@ const Navbar = () => {
         <nav className="pt-6 pb-4 border-b border-purple-300 relative z-50">
             <div className="flex items-center justify-between">
                 {/* Brand */}
-                <Link to="/" className="text-xl font-bold text-gray-900 flex items-center">
+                <Link to="/" className="flex items-center">
                     <img
                         src={logo}
                         alt="Classico Lifestyle Logo"
@@ -50,9 +50,8 @@ const Navbar = () => {
                         <li key={link.path}>
                             <Link
                                 to={link.path}
-                                className={`hover:underline hover:underline-offset-4 decoration-[#FCE823] ${
-                                    location.pathname === link.path ? 'underline underline-offset-4 text-black tracking-wide' : ''
-                                }`}
+                                className={`hover:underline hover:underline-offset-4 decoration-[#FCE823] ${location.pathname === link.path ? 'underline underline-offset-4 text-black tracking-wide' : ''
+                                    }`}
                             >
                                 {link.label}
                             </Link>
@@ -116,9 +115,8 @@ const Navbar = () => {
                             <Link
                                 to={link.path}
                                 onClick={() => setMenuOpen(false)}
-                                className={`block hover:underline hover:underline-offset-4 decoration-[#FCE823] ${
-                                    location.pathname === link.path ? 'underline underline-offset-4 text-black tracking-wide' : ''
-                                }`}
+                                className={`block hover:underline hover:underline-offset-4 decoration-[#FCE823] ${location.pathname === link.path ? 'underline underline-offset-4 text-black tracking-wide' : ''
+                                    }`}
                             >
                                 {link.label}
                             </Link>
