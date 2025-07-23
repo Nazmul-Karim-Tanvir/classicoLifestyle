@@ -1,18 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from './routes/AppRoutes'; // adjust path if needed
+import Sidebar1 from './components/Sidebar1';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <h1>Hello World </h1>
-      </div>
-    </>
-  )
-}
+    <BrowserRouter>
+      <AppRoutes />
+      <Sidebar1 /> {/* Global Sidebar Mount */}
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
