@@ -54,7 +54,7 @@ const SectionHero = () => {
     const CurrentLogoIcon = slides[current].LogoIcon;
 
     return (
-        <div className="max-w-[1170px] mx-auto flex gap-6 py-4 px-4 sm:px-6 lg:px-0 flex-col md:flex-row">
+        <div className="max-w-full mx-auto flex gap-6 py-4 px-4 sm:px-6 lg:px-0 flex-col md:flex-row">
             {/* Left Sidebar - Categories */}
             <div className="w-full md:w-1/4 border-b md:border-b-0 md:border-r border-gray-300 pb-4 md:pb-0">
                 <ul className="flex flex-wrap md:flex-col gap-2 md:gap-4 text-sm md:text-base lg:text-xl font-medium text-gray-600">

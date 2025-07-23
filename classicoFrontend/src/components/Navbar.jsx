@@ -33,19 +33,19 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="bg-white pt-6 pb-4 px-4 md:px-8 border-b border-gray-300 relative z-50">
-            <div className="max-w-[1170px] mx-auto flex items-center justify-between">
+        <nav className="bg-white pt-6 pb-4 px-4 md:px-8 border-b border-purple-300 relative z-50">
+            <div className="max-w-full mx-auto flex items-center justify-between">
                 {/* Brand */}
                 <Link to="/" className="text-xl font-bold text-gray-900 flex items-center">
                     <img
                         src={logo}
                         alt="Classico Lifestyle Logo"
-                        className="h-8 md:h-10 w-auto object-contain rounded"
+                        className="h-7 md:h-20 w-auto object-contain rounded shadow-2xl shadow-amber-100"
                     />
                 </Link>
 
                 {/* Nav Links - Desktop */}
-                <ul className="hidden md:flex gap-8 text-gray-700 font-sans font-medium">
+                <ul className="hidden md:flex gap-8 text-gray-700 font-sans font">
                     {navLinks.map(link => (
                         <li key={link.path}>
                             <Link
