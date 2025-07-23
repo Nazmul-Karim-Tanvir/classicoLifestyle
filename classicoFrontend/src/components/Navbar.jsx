@@ -69,7 +69,7 @@ const Navbar = () => {
                 <div className="flex items-center gap-4">
                     {/* Wishlist */}
                     <Link to="/wishList" className="relative text-gray-700">
-                        <Heart className="w-8 h-8 hover:text-red-500" />
+                        <Heart className="w-6 h-6 sm:w-8 sm:h-8 hover:text-red-500" />
                         {totalQuantity1 > 0 && (
                             <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full" style={{ minWidth: '18px', height: '18px' }}>
                                 {totalQuantity1}
@@ -79,7 +79,7 @@ const Navbar = () => {
 
                     {/* Cart */}
                     <Link to="/cart" className="relative text-gray-700">
-                        <ShoppingCart className="w-8 h-8 hover:text-blue-500" />
+                        <ShoppingCart className="w-6 h-6 sm:w-8 sm:h-8hover:text-blue-500" />
                         {totalQuantity > 0 && (
                             <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full" style={{ minWidth: '18px', height: '18px' }}>
                                 {totalQuantity}
@@ -90,7 +90,7 @@ const Navbar = () => {
                     {/* Sign In / Profile */}
                     {isLoggedIn ? (
                         <Link to="/profilepage" title="Profile">
-                            <UserCircle className="w-8 h-8 text-gray-700 hover:text-blue-600" />
+                            <UserCircle className="w-6 h-6 sm:w-8 sm:h-8text-gray-700 hover:text-blue-600" />
                         </Link>
                     ) : (
                         <Link
