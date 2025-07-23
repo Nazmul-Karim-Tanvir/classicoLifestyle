@@ -30,7 +30,7 @@ const Product = () => {
     const location = useLocation();
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [activeCategory, setActiveCategory] = useState('all');
-    const [perPage, setPerPage] = useState(4);
+    const [perPage, setPerPage] = useState(5);
     const [currentPage, setCurrentPage] = useState(1);
 
     // Handle URL query param to set category
@@ -82,11 +82,7 @@ const Product = () => {
     };
 
     return (
-        <div className="max-w-[1170px] mx-auto py-10">
-            <div className="text-sm text-gray-500 mb-6 px-0 md:px-0 pb-2">
-                <Link to="/" className="hover:underline">Home</Link> / <span>Products</span>
-            </div>
-
+        <div className="py-4">
             {/* Row: category dropdown (left) + per page selector (right) */}
             <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6 py-4 border-b-1 border-gray-300">
                 {/* Category dropdown */}
@@ -122,16 +118,16 @@ const Product = () => {
                         onChange={handlePerPageChange}
                         className="border rounded px-2 py-1 text-sm"
                     >
-                        <option value={4}>4</option>
-                        <option value={8}>8</option>
-                        <option value={12}>12</option>
+                        <option value={5}>5</option>
+                        <option value={10}>10</option>
+                        <option value={15}>15</option>
                     </select>
                 </div>
             </div>
 
             {/* Product Grid */}
             {paginatedProducts.length > 0 ? (
-                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6">
                     {paginatedProducts.map((product) => (
                         <ProductCard key={product.id} {...product} />
                     ))}
