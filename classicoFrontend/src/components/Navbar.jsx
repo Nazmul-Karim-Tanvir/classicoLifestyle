@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Heart, ShoppingCart, Search, Menu, X, UserCircle } from 'lucide-react';
+import { Heart, ShoppingCart, Menu, X, UserCircle } from 'lucide-react';
 import useCartStore from '../store/cartStore';
 import useWishListStore from '../store/wishlistStore';
 import logo from '/classico1.jpg';
@@ -33,24 +33,31 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="bg-white pt-6 pb-4 px-4 md:px-8 border-b border-purple-300 relative z-50">
+        <nav
+            className="pt-6 pb-4 px-4 md:px-8 border-b border-purple-300 relative z-50"
+            style={{
+                background: "linear-gradient(90deg, #a18cd1 0%, #fbc2eb 100%)"
+            }}
+        >
             <div className="max-w-full mx-auto flex items-center justify-between">
                 {/* Brand */}
                 <Link to="/" className="text-xl font-bold text-gray-900 flex items-center">
                     <img
                         src={logo}
                         alt="Classico Lifestyle Logo"
-                        className="h-7 md:h-20 w-auto object-contain rounded shadow-2xl shadow-amber-100"
+                        className="h-7 md:h-14 w-auto object-contain rounded shadow-2xl shadow-amber-100"
                     />
                 </Link>
 
                 {/* Nav Links - Desktop */}
-                <ul className="hidden md:flex gap-8 text-gray-700 font-sans font">
+                <ul className="hidden md:flex gap-8 text-gray-800 text-3xl font-semibold lobster-regular">
                     {navLinks.map(link => (
                         <li key={link.path}>
                             <Link
                                 to={link.path}
-                                className={`hover:underline hover:underline-offset-4 ${location.pathname === link.path ? 'underline underline-offset-4 text-black font-semibold' : ''}`}
+                                className={`hover:underline hover:underline-offset-4 decoration-[#FCE823] ${
+                                    location.pathname === link.path ? 'underline text-black' : ''
+                                }`}
                             >
                                 {link.label}
                             </Link>
@@ -80,7 +87,7 @@ const Navbar = () => {
                         )}
                     </Link>
 
-                    {/* Sign In / Profile - Always Visible */}
+                    {/* Sign In / Profile */}
                     {isLoggedIn ? (
                         <Link to="/profilepage" title="Profile">
                             <UserCircle className="w-6 h-6 text-gray-700 hover:text-blue-600" />
@@ -108,13 +115,15 @@ const Navbar = () => {
                         <X className="w-6 h-6 text-gray-700" />
                     </button>
                 </div>
-                <ul className="flex flex-col gap-6 text-gray-700 font-medium px-6 mt-4">
+                <ul className="flex flex-col gap-6 text-gray-800 text-xl font-semibold px-6 mt-4 lobster-regular">
                     {navLinks.map(link => (
                         <li key={link.path}>
                             <Link
                                 to={link.path}
                                 onClick={() => setMenuOpen(false)}
-                                className={`block text-lg ${location.pathname === link.path ? 'underline underline-offset-4 text-black font-semibold' : ''}`}
+                                className={`block hover:underline ${
+                                    location.pathname === link.path ? 'underline text-black' : ''
+                                }`}
                             >
                                 {link.label}
                             </Link>
