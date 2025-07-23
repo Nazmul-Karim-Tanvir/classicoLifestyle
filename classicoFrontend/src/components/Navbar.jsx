@@ -35,9 +35,9 @@ const Navbar = () => {
     return (
         <nav
             className="pt-6 pb-4 px-2 md:px-8 border-b border-purple-300 relative z-50"
-            style={{
-                background: "linear-gradient(90deg, #a18cd1 0%, #fbc2eb 100%)"
-            }}
+            // style={{
+            //     background: "linear-gradient(90deg, #a18cd1 0%, #fbc2eb 100%)"
+            // }}
         >
             <div className="max-w-full mx-auto flex items-center justify-between">
                 {/* Brand */}
@@ -79,7 +79,7 @@ const Navbar = () => {
 
                     {/* Cart */}
                     <Link to="/cart" className="relative text-gray-700">
-                        <ShoppingCart className="w-6 h-6 sm:w-8 sm:h-8hover:text-blue-500" />
+                        <ShoppingCart className="w-6 h-6 sm:w-8 sm:h-8 hover:text-blue-500" />
                         {totalQuantity > 0 && (
                             <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full" style={{ minWidth: '18px', height: '18px' }}>
                                 {totalQuantity}
@@ -90,7 +90,7 @@ const Navbar = () => {
                     {/* Sign In / Profile */}
                     {isLoggedIn ? (
                         <Link to="/profilepage" title="Profile">
-                            <UserCircle className="w-6 h-6 sm:w-8 sm:h-8text-gray-700 hover:text-blue-600" />
+                            <UserCircle className="w-6 h-6 sm:w-8 sm:h-8 text-gray-700 hover:text-blue-600" />
                         </Link>
                     ) : (
                         <Link
@@ -103,7 +103,7 @@ const Navbar = () => {
 
                     {/* Hamburger - Mobile */}
                     <button className="md:hidden text-gray-700" onClick={toggleMenu}>
-                        {menuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+                        {menuOpen ? <X className="w-6 h-6 sm:w-8 sm:h-8" /> : <Menu className="w-8 h-8" />}
                     </button>
                 </div>
             </div>
@@ -112,7 +112,7 @@ const Navbar = () => {
             <div className={`md:hidden fixed top-0 right-0 h-full w-[75%] bg-white shadow-lg transform transition-transform duration-300 ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
                 <div className="flex justify-end p-4">
                     <button onClick={toggleMenu}>
-                        <X className="w-8 h-8 text-gray-700" />
+                        <X className="w-6 h-6 sm:w-8 sm:h-8 text-gray-700" />
                     </button>
                 </div>
                 <ul className="flex flex-col gap-6 text-gray-700 text-xl font-semibold px-6 mt-4 lobster-regular">
