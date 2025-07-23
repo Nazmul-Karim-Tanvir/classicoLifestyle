@@ -34,7 +34,7 @@ const Navbar = () => {
 
     return (
         <nav
-            className="pt-6 pb-4 px-4 md:px-8 border-b border-purple-300 relative z-50"
+            className="pt-6 pb-4 px-2 md:px-8 border-b border-purple-300 relative z-50"
             style={{
                 background: "linear-gradient(90deg, #a18cd1 0%, #fbc2eb 100%)"
             }}
