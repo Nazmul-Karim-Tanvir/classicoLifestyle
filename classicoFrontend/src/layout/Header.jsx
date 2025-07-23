@@ -3,7 +3,6 @@ import Navbar from '../components/Navbar.jsx'
 const Header = () => {
     return (
         <div>
-            <TopHeader />
             <Navbar />
         </div>
     )

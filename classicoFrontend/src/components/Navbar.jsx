@@ -60,21 +60,6 @@ const Navbar = () => {
 
                 {/* Right Side - Search + Icons */}
                 <div className="flex items-center gap-4">
-                    {/* Desktop Search */}
-                    <div className="hidden md:flex border border-gray-300 px-3 py-1 rounded-md w-60">
-                        <input
-                            type="text"
-                            placeholder="What are you Looking for?"
-                            className="flex-grow outline-none text-sm"
-                        />
-                        <Search className="ml-3 w-5 h-5" />
-                    </div>
-
-                    {/* Mobile Search Icon */}
-                    <div className="md:hidden">
-                        <Search className="w-6 h-6 text-gray-700" />
-                    </div>
-
                     {/* Wishlist */}
                     <Link to="/wishList" className="relative text-gray-700">
                         <Heart className="w-6 h-6 hover:text-red-500" />
