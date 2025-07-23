@@ -2,7 +2,7 @@ import TopHeader from '../components/TopHeader.jsx'
 import Navbar from '../components/Navbar.jsx'
 const Header = () => {
     return (
-        <div>
+        <div className='max-w-[95%] mx-auto'>
             <Navbar />
         </div>
     )

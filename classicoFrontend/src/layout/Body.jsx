@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 const Body = () => {
     return (
-        <main className="max-w-[95%] mx-auto px-2 py-6">
+        <main className="max-w-[95%] mx-auto py-6">
             <Outlet />
         </main>
     );

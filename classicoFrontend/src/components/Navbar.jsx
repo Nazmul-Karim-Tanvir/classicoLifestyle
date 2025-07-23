@@ -33,13 +33,8 @@ const Navbar = () => {
     ];
 
     return (
-        <nav
-            className="pt-6 pb-4 px-2 md:px-8 border-b border-purple-300 relative z-50"
-            // style={{
-            //     background: "linear-gradient(90deg, #a18cd1 0%, #fbc2eb 100%)"
-            // }}
-        >
-            <div className="max-w-full mx-auto flex items-center justify-between">
+        <nav className="pt-6 pb-4 border-b border-purple-300 relative z-50">
+            <div className="flex items-center justify-between">
                 {/* Brand */}
                 <Link to="/" className="text-xl font-bold text-gray-900 flex items-center">
                     <img
@@ -56,7 +51,7 @@ const Navbar = () => {
                             <Link
                                 to={link.path}
                                 className={`hover:underline hover:underline-offset-4 decoration-[#FCE823] ${
-                                    location.pathname === link.path ? 'underline underline-offset-4 text-black text-3xl tracking-wide' : ''
+                                    location.pathname === link.path ? 'underline underline-offset-4 text-black tracking-wide' : ''
                                 }`}
                             >
                                 {link.label}
@@ -65,8 +60,8 @@ const Navbar = () => {
                     ))}
                 </ul>
 
-                {/* Right Side - Search + Icons */}
-                <div className="flex items-center gap-4">
+                {/* Right Side - Icons */}
+                <div className="flex items-center gap-3 sm:gap-4">
                     {/* Wishlist */}
                     <Link to="/wishList" className="relative text-gray-700">
                         <Heart className="w-6 h-6 sm:w-8 sm:h-8 hover:text-red-500" />
@@ -87,7 +82,7 @@ const Navbar = () => {
                         )}
                     </Link>
 
-                    {/* Sign In / Profile */}
+                    {/* Profile or Sign In */}
                     {isLoggedIn ? (
                         <Link to="/profilepage" title="Profile">
                             <UserCircle className="w-6 h-6 sm:w-8 sm:h-8 text-gray-700 hover:text-blue-600" />
@@ -101,7 +96,7 @@ const Navbar = () => {
                         </Link>
                     )}
 
-                    {/* Hamburger - Mobile */}
+                    {/* Mobile Menu Toggle */}
                     <button className="md:hidden text-gray-700" onClick={toggleMenu}>
                         {menuOpen ? <X className="w-6 h-6 sm:w-8 sm:h-8" /> : <Menu className="w-8 h-8" />}
                     </button>
@@ -115,7 +110,7 @@ const Navbar = () => {
                         <X className="w-6 h-6 sm:w-8 sm:h-8 text-gray-700" />
                     </button>
                 </div>
-                <ul className="flex flex-col gap-6 text-gray-700 text-xl font-semibold px-6 mt-4 lobster-regular">
+                <ul className="flex flex-col gap-4 sm:gap-6 text-gray-700 text-base sm:text-lg font-semibold px-4 sm:px-6 mt-4 lobster-regular">
                     {navLinks.map(link => (
                         <li key={link.path}>
                             <Link
