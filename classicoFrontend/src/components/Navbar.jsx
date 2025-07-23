@@ -45,18 +45,18 @@ const Navbar = () => {
                     <img
                         src={logo}
                         alt="Classico Lifestyle Logo"
-                        className="h-7 md:h-14 w-auto object-contain rounded shadow-2xl shadow-amber-100"
+                        className="h-7 md:h-12 w-auto object-contain rounded shadow-2xl shadow-amber-100"
                     />
                 </Link>
 
                 {/* Nav Links - Desktop */}
-                <ul className="hidden md:flex gap-8 text-gray-800 text-3xl font-semibold lobster-regular">
+                <ul className="hidden md:flex gap-8 text-gray-700 text-3xl font-semibold lobster-regular">
                     {navLinks.map(link => (
                         <li key={link.path}>
                             <Link
                                 to={link.path}
                                 className={`hover:underline hover:underline-offset-4 decoration-[#FCE823] ${
-                                    location.pathname === link.path ? 'underline text-black' : ''
+                                    location.pathname === link.path ? 'underline underline-offset-4 text-black text-3xl tracking-wide' : ''
                                 }`}
                             >
                                 {link.label}
@@ -69,7 +69,7 @@ const Navbar = () => {
                 <div className="flex items-center gap-4">
                     {/* Wishlist */}
                     <Link to="/wishList" className="relative text-gray-700">
-                        <Heart className="w-6 h-6 hover:text-red-500" />
+                        <Heart className="w-8 h-8 hover:text-red-500" />
                         {totalQuantity1 > 0 && (
                             <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full" style={{ minWidth: '18px', height: '18px' }}>
                                 {totalQuantity1}
@@ -79,7 +79,7 @@ const Navbar = () => {
 
                     {/* Cart */}
                     <Link to="/cart" className="relative text-gray-700">
-                        <ShoppingCart className="w-6 h-6 hover:text-blue-500" />
+                        <ShoppingCart className="w-8 h-8 hover:text-blue-500" />
                         {totalQuantity > 0 && (
                             <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full" style={{ minWidth: '18px', height: '18px' }}>
                                 {totalQuantity}
@@ -90,7 +90,7 @@ const Navbar = () => {
                     {/* Sign In / Profile */}
                     {isLoggedIn ? (
                         <Link to="/profilepage" title="Profile">
-                            <UserCircle className="w-6 h-6 text-gray-700 hover:text-blue-600" />
+                            <UserCircle className="w-8 h-8 text-gray-700 hover:text-blue-600" />
                         </Link>
                     ) : (
                         <Link
@@ -103,7 +103,7 @@ const Navbar = () => {
 
                     {/* Hamburger - Mobile */}
                     <button className="md:hidden text-gray-700" onClick={toggleMenu}>
-                        {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                        {menuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
                     </button>
                 </div>
             </div>
@@ -112,17 +112,17 @@ const Navbar = () => {
             <div className={`md:hidden fixed top-0 right-0 h-full w-[75%] bg-white shadow-lg transform transition-transform duration-300 ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
                 <div className="flex justify-end p-4">
                     <button onClick={toggleMenu}>
-                        <X className="w-6 h-6 text-gray-700" />
+                        <X className="w-8 h-8 text-gray-700" />
                     </button>
                 </div>
-                <ul className="flex flex-col gap-6 text-gray-800 text-xl font-semibold px-6 mt-4 lobster-regular">
+                <ul className="flex flex-col gap-6 text-gray-700 text-xl font-semibold px-6 mt-4 lobster-regular">
                     {navLinks.map(link => (
                         <li key={link.path}>
                             <Link
                                 to={link.path}
                                 onClick={() => setMenuOpen(false)}
-                                className={`block hover:underline ${
-                                    location.pathname === link.path ? 'underline text-black' : ''
+                                className={`block hover:underline hover:underline-offset-4 decoration-[#FCE823] ${
+                                    location.pathname === link.path ? 'underline underline-offset-4 text-black tracking-wide' : ''
                                 }`}
                             >
                                 {link.label}
