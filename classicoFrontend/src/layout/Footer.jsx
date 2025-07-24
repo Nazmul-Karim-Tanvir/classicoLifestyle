@@ -1,38 +1,58 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
+import logo from '/logo.jpg'; // Make sure this path is correct
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-tr from-purple-50 to-white border-t border-purple-300 text-gray-700 py-10">
-      <div className="max-w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-        
-        {/* Left Column: Brand Info */}
-        <div>
-          <h2 className="text-2xl font-bold text-purple-700 mb-3">Classico Lifestyle</h2>
-          <p className="text-sm leading-relaxed mb-4">
-            Where timeless design meets modern lifestyle. We craft fashion with elegance and simplicity.
+    <footer className="bg-gradient-to-tr from-gray-900 via-black to-gray-900 text-white pt-12 pb-6">
+      <div className="max-w-[90%] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+        {/* Logo & Description */}
+        <div className="flex flex-col gap-4 items-start">
+          <Link to="/" className="flex items-center">
+            <img
+              src={logo}
+              alt="Classico Lifestyle Logo"
+              className="h-16 w-auto rounded-xl shadow-md object-contain"
+              onError={(e) => { e.target.src = '/fallback.png'; }}
+            />
+          </Link>
+          <p className="text-sm text-gray-400">
+            Elevate your everyday style with <span className="text-purple-400 font-semibold">Classico Lifestyle</span>.
           </p>
           <p className="text-xs text-gray-500">
-            &copy; {new Date().getFullYear()} <span className="font-medium">Nazmul Karim Tanvir</span>. All rights reserved.
+            &copy; {new Date().getFullYear()} Nazmul Karim Tanvir. All rights reserved.
           </p>
         </div>
 
-        {/* Right Column: Navigation & Socials */}
-        <div className="flex flex-col md:items-end gap-4">
-          <ul className="space-y-1 text-sm">
-            <li><Link to="/" className="hover:text-purple-600 transition">Home</Link></li>
-            <li><Link to="/shop" className="hover:text-purple-600 transition">Shop</Link></li>
-            <li><Link to="/about" className="hover:text-purple-600 transition">About</Link></li>
-            <li><Link to="/contact" className="hover:text-purple-600 transition">Contact</Link></li>
+        {/* Navigation Links */}
+        <div className="flex flex-col items-center text-center">
+          <h3 className="text-lg font-semibold text-purple-400 mb-3">Quick Links</h3>
+          <ul className="space-y-2 text-sm text-gray-300">
+            <li><Link to="/" className="hover:text-purple-400 transition">Home</Link></li>
+            <li><Link to="/product" className="hover:text-purple-400 transition">Shop</Link></li>
+            <li><Link to="/about" className="hover:text-purple-400 transition">About</Link></li>
+            <li><Link to="/contact" className="hover:text-purple-400 transition">Contact</Link></li>
           </ul>
+        </div>
 
-          <div className="flex gap-4 mt-2">
-            <a href="#" className="hover:text-purple-700 transition"><Facebook size={20} /></a>
-            <a href="#" className="hover:text-purple-700 transition"><Instagram size={20} /></a>
-            <a href="#" className="hover:text-purple-700 transition"><Twitter size={20} /></a>
+        {/* Social Media Icons */}
+        <div className="flex flex-col items-center text-center">
+          <h3 className="text-lg font-semibold text-purple-400 mb-3">Follow Us</h3>
+          <div className="flex gap-5 justify-center">
+            <a href="#" className="hover:text-purple-400 transition" aria-label="Facebook">
+              <Facebook size={22} />
+            </a>
+            <a href="#" className="hover:text-purple-400 transition" aria-label="Instagram">
+              <Instagram size={22} />
+            </a>
+            <a href="#" className="hover:text-purple-400 transition" aria-label="Twitter">
+              <Twitter size={22} />
+            </a>
           </div>
         </div>
+
       </div>
     </footer>
   );
