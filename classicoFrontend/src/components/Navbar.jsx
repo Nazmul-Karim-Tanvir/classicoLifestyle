@@ -109,7 +109,7 @@ const Navbar = () => {
                         <X className="w-6 h-6 sm:w-8 sm:h-8 text-gray-700" />
                     </button>
                 </div>
-                <ul className="flex flex-col gap-4 sm:gap-6 text-gray-700 text-base sm:text-lg font-semibold px-4 sm:px-6 mt-4 lobster-regular">
+                <ul className="flex flex-col gap-4 sm:gap-6 text-gray-700 text-lg sm:text-xl font-semibold px-4 sm:px-6 mt-4 lobster-regular">
                     {navLinks.map(link => (
                         <li key={link.path}>
                             <Link
