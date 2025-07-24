@@ -6,7 +6,7 @@ const Services = () => {
         <div className='px-4 my-[100px]'>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-8 text-center'>
                 <div className='flex flex-col items-center'>
-                    <div className="w-20 h-20 rounded-full border-8 border-gray-300 flex items-center justify-center mb-4">
+                    <div className="w-20 h-20 rounded-full border-8 border-purple-200 flex items-center justify-center mb-4">
                         <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center">
                             <Truck className="text-white" size={40} />
                         </div>
@@ -16,7 +16,7 @@ const Services = () => {
                 </div>
 
                 <div className='flex flex-col items-center'>
-                    <div className="w-20 h-20 rounded-full border-8 border-gray-300 flex items-center justify-center mb-4">
+                    <div className="w-20 h-20 rounded-full border-8 border-purple-200  flex items-center justify-center mb-4">
                         <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center">
                             <Headset className="text-white" size={40} />
                         </div>
@@ -26,7 +26,7 @@ const Services = () => {
                 </div>
 
                 <div className='flex flex-col items-center'>
-                    <div className="w-20 h-20 rounded-full border-8 border-gray-300 flex items-center justify-center mb-4">
+                    <div className="w-20 h-20 rounded-full border-8 border-purple-200  flex items-center justify-center mb-4">
                         <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center">
                             <ShieldCheck className="text-white" size={40} />
                         </div>
