@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import signupImage from "../../assets/images/signupimage/signup-image.png";
+import signupImage from "/logoclassico1.jpg";
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -33,7 +33,7 @@ const SignUp = () => {
         if (!formData.email.trim()) newErrors.email = "Email is required";
         else if (!emailRegex.test(formData.email)) newErrors.email = "Invalid email format";
         if (!formData.password) newErrors.password = "Password is required";
-        else if (formData.password.length < 6) newErrors.password = "At least 6 characters";
+        else if (formData.password.length < 8) newErrors.password = "At least 8 characters";
         if (!isLogin) {
             if (!formData.confirmPassword) newErrors.confirmPassword = "Confirm your password";
             else if (formData.password !== formData.confirmPassword) newErrors.confirmPassword = "Passwords do not match";
@@ -99,7 +99,7 @@ const SignUp = () => {
 
     return (
         <div className="min-h-[800px] flex items-center justify-center px-4">
-            <div className="w-full max-w-[1170px] bg-white/80 backdrop-blur-lg shadow shadow-gray-300 rounded-xl overflow-hidden flex flex-col md:flex-row relative">
+            <div className="w-full max-w-[90%] bg-white/80 backdrop-blur-lg shadow shadow-gray-300 rounded-xl overflow-hidden flex flex-col md:flex-row relative">
                 <div className="relative w-full md:w-1/2 h-52 md:h-auto">
                     <img
                         src={signupImage}
@@ -127,8 +127,8 @@ const SignUp = () => {
                                     onChange={handleChange}
                                     placeholder="Enter your full name"
                                     className={`w-full mt-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 ${errors.name
-                                            ? "border-red-500 focus:ring-red-500"
-                                            : "border-gray-300 focus:ring-blue-500"
+                                        ? "border-red-500 focus:ring-red-500"
+                                        : "border-gray-300 focus:ring-blue-500"
                                         }`}
                                 />
                                 {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
@@ -146,8 +146,8 @@ const SignUp = () => {
                                 onChange={handleChange}
                                 placeholder="you@example.com"
                                 className={`w-full mt-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 ${errors.email
-                                        ? "border-red-500 focus:ring-red-500"
-                                        : "border-gray-300 focus:ring-blue-500"
+                                    ? "border-red-500 focus:ring-red-500"
+                                    : "border-gray-300 focus:ring-blue-500"
                                     }`}
                             />
                             {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
@@ -164,8 +164,8 @@ const SignUp = () => {
                                 onChange={handleChange}
                                 placeholder="Enter your password"
                                 className={`w-full mt-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 ${errors.password
-                                        ? "border-red-500 focus:ring-red-500"
-                                        : "border-gray-300 focus:ring-blue-500"
+                                    ? "border-red-500 focus:ring-red-500"
+                                    : "border-gray-300 focus:ring-blue-500"
                                     }`}
                             />
                             {errors.password && <p className="text-red-600 text-sm mt-1">{errors.password}</p>}
@@ -183,8 +183,8 @@ const SignUp = () => {
                                     onChange={handleChange}
                                     placeholder="Re-enter your password"
                                     className={`w-full mt-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 ${errors.confirmPassword
-                                            ? "border-red-500 focus:ring-red-500"
-                                            : "border-gray-300 focus:ring-blue-500"
+                                        ? "border-red-500 focus:ring-red-500"
+                                        : "border-gray-300 focus:ring-blue-500"
                                         }`}
                                 />
                                 {errors.confirmPassword && (

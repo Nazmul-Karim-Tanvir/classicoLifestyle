@@ -14,7 +14,7 @@ const Footer = () => {
             <img
               src={logo}
               alt="Classico Lifestyle Logo"
-              className="h-16 w-auto rounded-xl shadow-md object-contain"
+              className="h-16 w-auto rounded shadow-md object-contain"
               onError={(e) => { e.target.src = '/fallback.png'; }}
             />
           </Link>
