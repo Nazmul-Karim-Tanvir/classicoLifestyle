@@ -33,7 +33,7 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="pt-6 pb-4 border-b border-purple-300 relative z-50">
+        <nav className="max-w-[90%] mx-auto py-7 relative z-50">
             <div className="flex items-center justify-between">
                 {/* Brand */}
                 <Link to="/" className="flex items-center">
