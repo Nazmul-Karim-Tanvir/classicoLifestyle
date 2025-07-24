@@ -5,8 +5,8 @@ import heroImage from '/logoclassico.jpg'; // Use your image path here
 const SectionHero = () => {
   return (
     <section className="bg-gradient-to-br from-purple-50 to-white py-20 px-6 sm:px-10 lg:px-20 rounded-2xl">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
         {/* Text Content */}
         <div className="space-y-6">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-gray-900 leading-tight tracking-tight">
