@@ -6,7 +6,6 @@ const SignUp = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    // Get redirect path from query parameter, default to "/"
     const params = new URLSearchParams(location.search);
     const redirectTo = params.get("redirectTo") || "/";
 
@@ -55,9 +54,7 @@ const SignUp = () => {
 
             if (!user) {
                 const confirmSignup = window.confirm("User not found. Would you like to sign up?");
-                if (confirmSignup) {
-                    setIsLogin(false);
-                }
+                if (confirmSignup) setIsLogin(false);
                 return;
             }
 
@@ -68,7 +65,7 @@ const SignUp = () => {
 
             alert(`Welcome back, ${user.name}!`);
             localStorage.setItem("loggedInUser", user.email);
-            navigate(redirectTo, { replace: true });  // <-- Redirect here after login
+            navigate(redirectTo, { replace: true });
         } else {
             const userExists = storedUsers.some(
                 (u) => u.email.toLowerCase() === formData.email.toLowerCase()
@@ -89,7 +86,7 @@ const SignUp = () => {
             localStorage.setItem("users", JSON.stringify(storedUsers));
             localStorage.setItem("loggedInUser", formData.email.trim().toLowerCase());
             alert("Signup successful! You are now logged in.");
-            navigate(redirectTo, { replace: true });  // <-- Redirect here after signup
+            navigate(redirectTo, { replace: true });
         }
 
         setFormData({ name: "", email: "", password: "", confirmPassword: "" });
@@ -98,21 +95,35 @@ const SignUp = () => {
     const RedStar = () => <span className="text-red-600">*</span>;
 
     return (
-        <div className="min-h-[800px] flex items-center justify-center px-4">
-            <div className="w-full max-w-[90%] bg-white/80 backdrop-blur-lg shadow shadow-gray-300 rounded-xl overflow-hidden flex flex-col md:flex-row relative">
+        <section className="min-h-screen flex items-center justify-center px-4 py-8 bg-purple-50">
+            <div className="w-full max-w-[90%] shadow-xl rounded-xl overflow-hidden flex flex-col md:flex-row">
+                {/* Image */}
                 <div className="relative w-full md:w-1/2 h-52 md:h-auto">
                     <img
                         src={signupImage}
                         alt="Signup"
-                        className="absolute inset-0 w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-cover rounded-t-3xl md:rounded-l-3xl"
                     />
-                    <div className="absolute inset-0 bg-black/30 md:hidden" />
                 </div>
 
-                <div className="w-full md:w-1/2 p-6 sm:p-10 md:p-12 flex flex-col justify-center bg-white/80">
-                    <h2 className="text-3xl font-bold text-center md:text-left text-[#1f2937] mb-6">
+                {/* Form */}
+                <div className="w-full md:w-1/2 p-6 sm:p-10 md:p-12 bg-white/80 backdrop-blur-lg">
+                    <h2 className="text-3xl font-bold text-purple-800 mb-2 text-center md:text-left">
                         {isLogin ? "Welcome Back!" : "Get Started"}
                     </h2>
+                    <p className="text-sm text-gray-700 mb-6 text-center md:text-left">
+                        {isLogin ? "Don't have an account?" : "Already have an account?"} {" "}
+                        <button
+                            onClick={() => {
+                                setIsLogin(!isLogin);
+                                setFormData({ name: "", email: "", password: "", confirmPassword: "" });
+                                setErrors({});
+                            }}
+                            className="text-purple-800 hover:underline font-semibold"
+                        >
+                            {isLogin ? "Sign Up" : "Login"}
+                        </button>
+                    </p>
 
                     <form className="space-y-5" onSubmit={handleSubmit} noValidate>
                         {!isLogin && (
@@ -126,10 +137,7 @@ const SignUp = () => {
                                     value={formData.name}
                                     onChange={handleChange}
                                     placeholder="Enter your full name"
-                                    className={`w-full mt-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 ${errors.name
-                                        ? "border-red-500 focus:ring-red-500"
-                                        : "border-gray-300 focus:ring-blue-500"
-                                        }`}
+                                    className={`w-full mt-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 ${errors.name ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-purple-800"}`}
                                 />
                                 {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
                             </div>
@@ -145,10 +153,7 @@ const SignUp = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                                 placeholder="you@example.com"
-                                className={`w-full mt-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 ${errors.email
-                                    ? "border-red-500 focus:ring-red-500"
-                                    : "border-gray-300 focus:ring-blue-500"
-                                    }`}
+                                className={`w-full mt-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 ${errors.email ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-purple-800"}`}
                             />
                             {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
                         </div>
@@ -163,10 +168,7 @@ const SignUp = () => {
                                 value={formData.password}
                                 onChange={handleChange}
                                 placeholder="Enter your password"
-                                className={`w-full mt-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 ${errors.password
-                                    ? "border-red-500 focus:ring-red-500"
-                                    : "border-gray-300 focus:ring-blue-500"
-                                    }`}
+                                className={`w-full mt-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 ${errors.password ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-purple-800"}`}
                             />
                             {errors.password && <p className="text-red-600 text-sm mt-1">{errors.password}</p>}
                         </div>
@@ -182,14 +184,9 @@ const SignUp = () => {
                                     value={formData.confirmPassword}
                                     onChange={handleChange}
                                     placeholder="Re-enter your password"
-                                    className={`w-full mt-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 ${errors.confirmPassword
-                                        ? "border-red-500 focus:ring-red-500"
-                                        : "border-gray-300 focus:ring-blue-500"
-                                        }`}
+                                    className={`w-full mt-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 ${errors.confirmPassword ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-purple-800"}`}
                                 />
-                                {errors.confirmPassword && (
-                                    <p className="text-red-600 text-sm mt-1">{errors.confirmPassword}</p>
-                                )}
+                                {errors.confirmPassword && <p className="text-red-600 text-sm mt-1">{errors.confirmPassword}</p>}
                             </div>
                         )}
 
@@ -197,7 +194,7 @@ const SignUp = () => {
                             <div className="text-right">
                                 <button
                                     type="button"
-                                    className="text-sm text-blue-600 hover:underline font-medium"
+                                    className="text-sm text-purple-800 hover:underline font-medium"
                                     onClick={() => alert("Password reset coming soon!")}
                                 >
                                     Forgot Password?
@@ -207,28 +204,14 @@ const SignUp = () => {
 
                         <button
                             type="submit"
-                            className="w-full bg-gradient-to-r from-[#6366f1] to-[#3b82f6] hover:from-[#3b82f6] hover:to-[#2563eb] text-white py-2.5 rounded-lg font-semibold transition duration-300 shadow-md hover:shadow-lg"
+                            className="w-full bg-purple-800 hover:bg-purple-900 text-white py-2.5 rounded-lg font-semibold transition duration-300 shadow-md hover:shadow-lg"
                         >
                             {isLogin ? "Login" : "Sign Up"}
                         </button>
                     </form>
-
-                    <p className="mt-6 text-center text-sm text-gray-600">
-                        {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
-                        <button
-                            onClick={() => {
-                                setIsLogin(!isLogin);
-                                setFormData({ name: "", email: "", password: "", confirmPassword: "" });
-                                setErrors({});
-                            }}
-                            className="text-blue-600 hover:underline font-semibold"
-                        >
-                            {isLogin ? "Sign Up" : "Login"}
-                        </button>
-                    </p>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
