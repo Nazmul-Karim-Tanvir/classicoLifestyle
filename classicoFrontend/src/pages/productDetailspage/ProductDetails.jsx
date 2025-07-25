@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Heart, Minus, Plus } from 'lucide-react';
 import products from '../../store/products';
-import useSidebarStore from '../../store/useSidebarStore';
 
 import img1 from '../../assets/images/productDetails/image1.svg';
 import img2 from '../../assets/images/productDetails/image58.svg';
@@ -44,7 +43,6 @@ const ProductDetails = () => {
     const [size, setSize] = useState('M');
     const [relatedProducts, setRelatedProducts] = useState([]);
 
-    const openSidebar = useSidebarStore((state) => state.openSidebar);
 
     useEffect(() => {
         const productId = parseInt(id);

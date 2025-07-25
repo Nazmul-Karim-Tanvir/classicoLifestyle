@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
+import productRouter from './routes/productRoutes.js';
 
 dotenv.config();
 connectDB();
@@ -15,6 +16,9 @@ app.use(express.json());
 
 // db connection
 connectDB();
+
+// api endpoints
+app.use('/api/product', productRouter);
 
 app.get('/', (req, res) => {
   res.send('Classico LifeStyle API Running');
