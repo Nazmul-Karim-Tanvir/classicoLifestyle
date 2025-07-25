@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Classico API Running');
+  res.send('Classico LifeStyle API Running');
 });
 
 const PORT = process.env.PORT || 5000;
