@@ -10,12 +10,9 @@ const WishList = () => {
     const navigate = useNavigate(); // ✅ Using navigate properly
 
     return (
-        <div className="max-w-[1170px] mx-auto py-10">
-            <div className="max-w-[1170px] mx-auto text-sm text-gray-500 mb-6 px-4 md:px-0 pb-6">
-                <Link to="/" className="hover:underline">Home</Link> / <span>Wishlist</span>
-            </div>
-
-            <h2 className="text-xl font-semibold mb-8 text-center sm:text-left">Your Wishlist</h2>
+        <div className="py-10">
+            
+            <h2 className="text-xl font-semibold mb-12 text-center sm:text-left text-purple-700">Your Wishlist</h2>
             {/* Empty Wishlist View */}
             {wishListItems.length === 0 ? (
                 <div className="flex flex-col items-center justify-center text-center text-gray-500 py-20">

@@ -15,10 +15,7 @@ const Cart = () => {
     const subtotal = getTotalPrice();
 
     return (
-        <div className="max-w-[1170px] mx-auto py-12">
-            <div className="max-w-[1170px] mx-auto text-sm text-gray-500 mb-6 px-4 md:px-0 pb-6">
-                <Link to="/" className="hover:underline">Home</Link> / <span>Cart</span>
-            </div>
+        <div className="py-12">
             <h2 className="text-xl font-semibold mb-8 text-center sm:text-left">Shopping Cart</h2>
 
             {/* Empty Cart View */}
