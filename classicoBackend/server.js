@@ -19,6 +19,7 @@ connectDB();
 
 // api endpoints
 app.use('/api/product', productRouter);
+app.use('/images',express.static('uploads'));
 
 app.get('/', (req, res) => {
   res.send('Classico LifeStyle API Running');

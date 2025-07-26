@@ -7,13 +7,13 @@ const productSchema = new mongoose.Schema({
   oldPrice: { type: Number },
   image: { type: String, required: true },
   category: { type: [String], required: true },
-  sizes: { type: [String], default: [] },    
-  colour: { type: [String], default: [] },  
+  sizes: { type: [String], default: [] },
+  colour: { type: [String], default: [] },
   productId: { type: Number, required: true, unique: true },
   stock: { type: Number, required: true, default: 0 },
   rating: { type: Number, default: 0 },
   tags: { type: [String], default: [] },
 }, { timestamps: true });
 
-const Product = mongoose.model('Product', productSchema);
-export default Product;
+const productModel = mongoose.models.product || mongoose.model('Product', productSchema);
+export default productModel;
