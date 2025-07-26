@@ -4,19 +4,15 @@ import { Mail, PhoneCall } from 'lucide-react';
 
 const Contact = () => {
     return (
-        <div className="bg-white py-10 px-4 md:px-0 min-h-screen">
-            {/* Breadcrumb */}
-            <div className="max-w-[1170px] mx-auto text-sm text-gray-500 mb-6">
-                <Link to="/" className="hover:underline">Home</Link> / <span>Contact</span>
-            </div>
+        <div className="bg-white py-10 md:px-0 min-h-screen">
 
             {/* Contact Section */}
-            <div className="max-w-[1170px] mx-auto flex flex-col md:flex-row gap-6 mt-6">
+            <div className="flex flex-col md:flex-row gap-6 mt-6">
                 {/* Left Side - 30% */}
                 <div className="w-full md:basis-[30%] flex flex-col gap-8 bg-white p-6 rounded-md shadow-sm">
                     {/* Call Us */}
                     <div className="flex items-start gap-4">
-                        <div className="bg-red-100 text-red-500 p-3 rounded-full">
+                        <div className="bg-purple-100 text-red-500 p-3 rounded-full">
                             <PhoneCall className="w-6 h-6" />
                         </div>
                         <div>
@@ -30,14 +26,14 @@ const Contact = () => {
 
                     {/* Write To Us */}
                     <div className="flex items-start gap-4">
-                        <div className="bg-red-100 text-red-500 p-3 rounded-full">
+                        <div className="bg-purple-100 text-red-500 p-3 rounded-full">
                             <Mail className="w-6 h-6" />
                         </div>
                         <div>
                             <h3 className="text-lg font-semibold text-gray-800">Write To US</h3>
                             <p className="text-gray-600 mt-1">Fill out our form and we will contact you within 24 hours.</p>
-                            <p className="text-gray-800 font-medium mt-1">Emails: customer@exclusive.com</p>
-                            <p className="text-gray-800 font-medium">Emails: support@exclusive.com</p>
+                            <p className="text-gray-800 font-medium mt-1">Emails: customerclassico@gmail.com</p>
+                            <p className="text-gray-800 font-medium">Emails: supportclassico@gmail.com</p>
                         </div>
                     </div>
                 </div>
@@ -50,17 +46,17 @@ const Contact = () => {
                             <input
                                 type="text"
                                 placeholder="Your Name *"
-                                className="border border-gray-300 px-4 py-2 rounded w-full focus:outline-none bg-[#F5F5F5]"
+                                className="border border-gray-300 px-4 py-2 rounded w-full focus:outline-none bg-purple-100"
                             />
                             <input
                                 type="email"
                                 placeholder="Your Email *"
-                                className="border border-gray-300 px-4 py-2 rounded w-full focus:outline-none bg-[#F5F5F5]"
+                                className="border border-gray-300 px-4 py-2 rounded w-full focus:outline-none bg-purple-100"
                             />
                             <input
                                 type="text"
                                 placeholder="Your Phone *"
-                                className="border border-gray-300 px-4 py-2 rounded w-full focus:outline-none bg-[#F5F5F5]"
+                                className="border border-gray-300 px-4 py-2 rounded w-full focus:outline-none bg-purple-100"
                             />
                         </div>
 
@@ -68,14 +64,14 @@ const Contact = () => {
                         <textarea
                             rows="6"
                             placeholder="Your Massage"
-                            className="border border-gray-300 px-4 py-2 rounded w-full focus:outline-none resize-none bg-[#F5F5F5]"
+                            className="border border-gray-300 px-4 py-2 rounded w-full focus:outline-none resize-none bg-purple-100"
                         ></textarea>
 
                         {/* Submit */}
                         <div className="text-right">
                             <button
                                 type="submit"
-                                className="bg-red-500 text-white font-semibold px-6 py-2 my-4 rounded hover:bg-red-600 transition"
+                                className="bg-purple-700 text-white font-semibold px-6 py-2 my-4 rounded hover:bg-purple-800 transition"
                             >
                                 Send Massage
                             </button>
