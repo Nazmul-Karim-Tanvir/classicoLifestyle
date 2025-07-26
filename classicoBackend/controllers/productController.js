@@ -44,7 +44,7 @@ const addProduct = async (req, res) => {
   }
 };
 
-// get all products
+// all product list
 const listProduct = async (req, res) => {
   try {
     const products = await productModel.find({});
@@ -53,7 +53,7 @@ const listProduct = async (req, res) => {
       data: products
     });
   } catch (error) {
-    console.error('Error fetching products:', error.message);
+    console.log(error);
     res.json({
       success: false,
       message: 'Error while fetching products',
