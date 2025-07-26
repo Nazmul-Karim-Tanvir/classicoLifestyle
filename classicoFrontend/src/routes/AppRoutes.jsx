@@ -19,6 +19,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CheckOut from '../pages/checkOut/CheckOut.jsx';
 import ProfilePage from '../pages/profile/ProfilePage.jsx';
+import Error from '../pages/error/Error.jsx';
 
 const AppRoutes = () => {
     return (
@@ -59,9 +60,7 @@ const AppRoutes = () => {
                 <Route
                     path="*"
                     element={
-                        <div className="text-center py-10 text-2xl">
-                            404 - Page Not Found
-                        </div>
+                        <Error />
                     }
                 />
             </Route>
