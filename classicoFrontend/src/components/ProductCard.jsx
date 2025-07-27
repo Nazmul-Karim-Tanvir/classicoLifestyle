@@ -69,9 +69,8 @@ const ProductCard = ({
         <div className="absolute top-2 right-2 flex flex-col gap-2 z-10 items-end">
           <div
             onClick={handleToggleWishList}
-            className={`rounded-full p-2 cursor-pointer transition-colors z-20 ${
-              isInWishList ? 'bg-red-500 text-white' : 'bg-white'
-            } shadow-sm`}
+            className={`rounded-full p-2 cursor-pointer transition-colors z-20 ${isInWishList ? 'bg-red-500 text-white' : 'bg-white'
+              } shadow-sm`}
             title={isInWishList ? 'Remove from wishlist' : 'Add to wishlist'}
             role="button"
             tabIndex={0}
@@ -138,18 +137,18 @@ const ProductCard = ({
       <div className="py-2 px-2 sm:px-3">
         <h3 className="text-base sm:text-lg font-medium line-clamp-1 leading-snug">{name}</h3>
 
-        <div className="flex items-start pt-1.5 gap-2">
-          <span className="text-red-600 font-semibold text-base sm:text-lg">${newPrice}</span>
+        <div className="flex items-start pt-1.5 gap-2 justify-between">
+          <span className="text-red-600 font-semibold text-base sm:text-lg">৳{newPrice}</span>
           {oldPrice && (
-            <span className="text-gray-400 font-medium line-through text-sm sm:text-base">${oldPrice}</span>
+            <span className="text-gray-400 font-medium line-through text-sm sm:text-base">৳{oldPrice}</span>
           )}
+          <span className={inStock ? 'text-green-600 font-semibold' : 'text-red-500 font-semibold'}>
+            {inStock ? 'In Stock' : 'Out of Stock'}
+          </span>
         </div>
 
         <div className="flex flex-wrap justify-between pt-2 text-xs sm:text-sm text-gray-600">
           <span>Sizes: {sizes.length > 0 ? sizes.join(', ') : 'N/A'}</span>
-          <span className={inStock ? 'text-green-600 font-semibold' : 'text-red-500 font-semibold'}>
-            {inStock ? 'In Stock' : 'Out of Stock'}
-          </span>
         </div>
       </div>
     </div>
