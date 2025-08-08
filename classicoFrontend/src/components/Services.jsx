@@ -3,7 +3,8 @@ import React from 'react';
 
 const Services = () => {
     return (
-        <div className='px-4 my-[100px]'>
+        <div className='px-4 my-[100px] text-center'>
+            <h2 className="text-3xl font-semibold text-purple-900 mb-12 font-serif">Our Services</h2>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-8 text-center'>
                 <div className='flex flex-col items-center'>
                     <div className="w-20 h-20 rounded-full border-8 border-purple-200 flex items-center justify-center mb-4">

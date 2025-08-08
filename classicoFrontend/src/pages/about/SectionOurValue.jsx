@@ -22,7 +22,7 @@ const SectionOurValue = () => {
 
   return (
     <div className="my-24 text-center px-4">
-      <h2 className="text-3xl font-semibold text-gray-900 mb-12">Our Core Values</h2>
+      <h2 className="text-3xl font-semibold text-purple-900 mb-12 font-serif">Our Core Values</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {values.map((value, index) => (
           <div
