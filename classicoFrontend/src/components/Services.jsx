@@ -12,7 +12,7 @@ const Services = () => {
                         </div>
                     </div>
                     <h1 className='text-2xl font-semibold mb-4'>FREE AND FAST DELIVERY</h1>
-                    <p className='text-gray-600 mb-5'>Free delivery for all orders over $140</p>
+                    <p className='text-gray-600 mb-5'>Free delivery for all orders over 600 Taka</p>
                 </div>
 
                 <div className='flex flex-col items-center'>
