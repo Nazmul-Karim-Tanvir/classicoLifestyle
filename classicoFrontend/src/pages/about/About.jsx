@@ -6,7 +6,7 @@ import Services from '../../components/Services'; // If you're still using this
 
 const About = () => {
   return (
-    <section className="py-1 text-center">
+    <section className="py-1">
       <SectionHero />
       <SectionOurValue />
       <Services />

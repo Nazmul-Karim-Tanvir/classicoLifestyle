@@ -2,7 +2,7 @@ import React from 'react';
 
 const SectionHero = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center gap-10 mb-16">
+    <div className="flex flex-col md:flex-row items-center gap-10 my-16">
       {/* Text */}
       <div className="md:w-1/2 space-y-6">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-gray-900 leading-tight">
