@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { ShieldUser } from 'lucide-react';
 
-import idlclogo from "../../assets/idlclogo.jpg";
+import classicologo from "../../assets/classico3.jpg";
 import useSidebarStore from "../../store/useSidebarStore";
 
 const navItems = [
@@ -55,13 +55,13 @@ const Sidebar = () => {
                 `}>
                     <div className="flex items-center gap-3">
                         <img
-                            src={idlclogo}
+                            src={classicologo}
                             alt="IDLC Logo"
                             className="w-10 h-10 object-contain"
                         />
                         {isOpen && (
                             <h1 className="text-xl font-bold text-gray-800 tracking-wide">
-                                IDLC
+                                Classico
                             </h1>
                         )}
                     </div>
