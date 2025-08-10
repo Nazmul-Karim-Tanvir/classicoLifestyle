@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Dashboard from './pages/dashboard/Dashboard.jsx'
-import AddProduct from './pages/addProduct/AddProduct.jsx'
-import Orders from './pages/orders/Orders.jsx'
-import Customers from './pages/addProduct/Customers.jsx'
-import OrderList from './pages/addProduct/OrderList.jsx'
-import Orders from './pages/orders/Orders.jsx';
-import Layout from './layout/Layout.jsx'
+
+import AddProduct from './pages/addProduct/AddProduct.jsx';
+import Customers from './pages/customers/Customers.jsx';
+import Dashboard from './pages/dashboard/Dashboard.jsx';
+import OrdersList from './pages/ordersList/OrdersList.jsx';
+import ProductList from './pages/productList/ProductList.jsx';
+
+import Layout from './layout/Layout.jsx';
 import LoginPopup from './components/auth/LoginPopup.jsx';
 
 function App() {
@@ -15,9 +16,9 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="add-product" element={<AddProduct />} />
-          <Route path="orders" element={<Orders />} />
+          <Route path="orders" element={<OrdersList />} />
           <Route path="customers" element={<Customers />} />
-          <Route path="order-list" element={<OrderList />} />
+          <Route path="product-list" element={<ProductList />} />
         </Route>
 
         {/* Login Route Outside Layout */}
