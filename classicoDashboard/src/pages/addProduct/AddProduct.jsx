@@ -1,274 +1,117 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
-const categories = ["Salad", "Pizza", "Burger", "Dessert"];
-const sizes = ["Small", "Medium", "Large"];
-const colours = ["Red", "Green", "Blue", "Black"];
-const tagsList = ["Spicy", "Vegetarian", "New", "Best Seller"];
+export default function AddProduct() {
+  const [formData, setFormData] = useState({
+    name: "",
+    description: "",
+    price: "",
+    oldPrice: "",
+    category: "",
+    sizes: "",
+    colour: "",
+    productId: "",
+    stock: "",
+    rating: "",
+    tags: "",
+  });
+  const [image, setImage] = useState(null);
 
-const AddProduct = () => {
-    const [form, setForm] = useState({
-        image: null,
+  // Handle input change
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle image selection
+  const handleImageChange = (e) => {
+    setImage(e.target.files[0]);
+  };
+
+  // Submit form
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const data = new FormData();
+
+      // Append fields with type conversion
+      Object.entries(formData).forEach(([key, value]) => {
+        if (["category", "sizes", "colour", "tags"].includes(key)) {
+          data.append(key, JSON.stringify(value.split(",").map(i => i.trim())));
+        } else if (["price", "oldPrice", "productId", "stock", "rating"].includes(key)) {
+          data.append(key, Number(value));
+        } else {
+          data.append(key, value);
+        }
+      });
+
+      if (image) {
+        data.append("image", image);
+      }
+
+      await axios.post("http://localhost:5000/api/product/add", data, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+      toast.success("✅ Product added successfully!");
+
+      setFormData({
         name: "",
         description: "",
-        category: [],
         price: "",
         oldPrice: "",
-        sizes: [],
-        colour: [],
+        category: "",
+        sizes: "",
+        colour: "",
         productId: "",
         stock: "",
         rating: "",
-        tags: [],
-    });
+        tags: "",
+      });
+      setImage(null);
 
-    const [preview, setPreview] = useState(null);
-    const [message, setMessage] = useState(null);
+    } catch (error) {
+      toast.error("❌ Failed to add product");
+      console.error(error);
+    }
+  };
 
-    const handleChange = (e) => {
-        const { name, value, files, type, checked } = e.target;
+  return (
+    <div className="p-6 bg-gray-100 min-h-screen">
+      <div className="max-w-2xl mx-auto bg-white rounded-lg shadow p-6">
+        <h1 className="text-2xl font-bold mb-6 text-center">Add Product</h1>
 
-        if (type === "file") {
-            const file = files[0] || null;
-            setForm((prev) => ({ ...prev, [name]: file }));
-            setPreview(file ? URL.createObjectURL(file) : null);
-        } else if (type === "checkbox") {
-            setForm((prev) => {
-                const arr = new Set(prev[name]);
-                checked ? arr.add(value) : arr.delete(value);
-                return { ...prev, [name]: Array.from(arr) };
-            });
-        } else {
-            setForm((prev) => ({ ...prev, [name]: value }));
-        }
-    };
+        <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
+          {Object.keys(formData).map((field) => (
+            <input
+              key={field}
+              type="text"
+              name={field}
+              value={formData[field]}
+              onChange={handleChange}
+              placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
+              className="border rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+          ))}
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setMessage("✅ Product added successfully!");
-        setForm({
-            image: null,
-            name: "",
-            description: "",
-            category: [],
-            price: "",
-            oldPrice: "",
-            sizes: [],
-            colour: [],
-            productId: "",
-            stock: "",
-            rating: "",
-            tags: [],
-        });
-        setPreview(null);
-    };
+          {/* Image upload */}
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            className="col-span-2 border rounded p-2"
+          />
 
-    return (
-        <div className="max-w-full mx-auto p-4">
-            <h2 className="text-xl font-semibold mb-6 text-purple-900 text-center font-serif underline underline-offset-4">
-                Add New Product
-            </h2>
-
-            {message && (
-                <p className="mb-4 text-center text-green-600 font-semibold">{message}</p>
-            )}
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Image Upload */}
-                <div>
-                    <label className="block text-gray-700 font-medium mb-2">Product Image</label>
-                    <label className="cursor-pointer flex flex-col items-center justify-center border border-gray-400 border-dashed rounded-md h-32">
-                        <input
-                            type="file"
-                            name="image"
-                            accept="image/*"
-                            onChange={handleChange}
-                            required
-                            className="hidden"
-                        />
-                        Upload Image
-                    </label>
-
-                    {preview && (
-                        <div className="mt-3 flex justify-center">
-                            <img
-                                src={preview}
-                                alt="Preview"
-                                className="h-32 object-cover rounded-md border"
-                            />
-                        </div>
-                    )}
-                </div>
-
-                {/* Product Info Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {/* Name */}
-                    <div>
-                        <label className="block text-gray-700 font-medium mb-1">Product Name</label>
-                        <input
-                            type="text"
-                            name="name"
-                            value={form.name}
-                            onChange={handleChange}
-                            required
-                            className="w-full border border-gray-400 px-3 py-2 rounded-md"
-                        />
-                    </div>
-
-                    {/* Product ID */}
-                    <div>
-                        <label className="block text-gray-700 font-medium mb-1">Product ID</label>
-                        <input
-                            type="number"
-                            name="productId"
-                            value={form.productId}
-                            onChange={handleChange}
-                            required
-                            className="w-full border border-gray-400 px-3 py-2 rounded-md"
-                        />
-                    </div>
-
-                    {/* Price */}
-                    <div>
-                        <label className="block text-gray-700 font-medium mb-1">Price</label>
-                        <input
-                            type="number"
-                            name="price"
-                            value={form.price}
-                            onChange={handleChange}
-                            required
-                            className="w-full border border-gray-400 px-3 py-2 rounded-md"
-                        />
-                    </div>
-
-                    {/* Old Price */}
-                    <div>
-                        <label className="block text-gray-700 font-medium mb-1">Old Price</label>
-                        <input
-                            type="number"
-                            name="oldPrice"
-                            value={form.oldPrice}
-                            onChange={handleChange}
-                            className="w-full border border-gray-400 px-3 py-2 rounded-md"
-                        />
-                    </div>
-
-                    {/* Stock */}
-                    <div>
-                        <label className="block text-gray-700 font-medium mb-1">Stock Quantity</label>
-                        <input
-                            type="number"
-                            name="stock"
-                            value={form.stock}
-                            onChange={handleChange}
-                            required
-                            className="w-full border border-gray-400 px-3 py-2 rounded-md"
-                        />
-                    </div>
-
-                    {/* Rating */}
-                    <div>
-                        <label className="block text-gray-700 font-medium mb-1">Rating</label>
-                        <input
-                            type="number"
-                            name="rating"
-                            value={form.rating}
-                            onChange={handleChange}
-                            className="w-full border border-gray-400 px-3 py-2 rounded-md"
-                        />
-                    </div>
-                </div>
-
-                {/* Description */}
-                <div>
-                    <label className="block text-gray-700 font-medium mb-1">Description</label>
-                    <textarea
-                        name="description"
-                        placeholder="Description"
-                        value={form.description}
-                        onChange={handleChange}
-                        required
-                        className="w-full border border-gray-400 px-3 py-2 rounded-md h-24 resize-none"
-                    />
-                </div>
-
-                {/* Category */}
-                <div>
-                    <p className="font-medium mb-2">Category</p>
-                    {categories.map((cat) => (
-                        <label key={cat} className="mr-4">
-                            <input
-                                type="checkbox"
-                                name="category"
-                                value={cat}
-                                checked={form.category.includes(cat)}
-                                onChange={handleChange}
-                            />{" "}
-                            {cat}
-                        </label>
-                    ))}
-                </div>
-
-                {/* Sizes */}
-                <div>
-                    <p className="font-medium mb-2">Sizes</p>
-                    {sizes.map((s) => (
-                        <label key={s} className="mr-4">
-                            <input
-                                type="checkbox"
-                                name="sizes"
-                                value={s}
-                                checked={form.sizes.includes(s)}
-                                onChange={handleChange}
-                            />{" "}
-                            {s}
-                        </label>
-                    ))}
-                </div>
-
-                {/* Colours */}
-                <div>
-                    <p className="font-medium mb-2">Colours</p>
-                    {colours.map((c) => (
-                        <label key={c} className="mr-4">
-                            <input
-                                type="checkbox"
-                                name="colour"
-                                value={c}
-                                checked={form.colour.includes(c)}
-                                onChange={handleChange}
-                            />{" "}
-                            {c}
-                        </label>
-                    ))}
-                </div>
-
-                {/* Tags */}
-                <div>
-                    <p className="font-medium mb-2">Tags</p>
-                    {tagsList.map((tag) => (
-                        <label key={tag} className="mr-4">
-                            <input
-                                type="checkbox"
-                                name="tags"
-                                value={tag}
-                                checked={form.tags.includes(tag)}
-                                onChange={handleChange}
-                            />{" "}
-                            {tag}
-                        </label>
-                    ))}
-                </div>
-
-                {/* Submit */}
-                <button
-                    type="submit"
-                    className="w-full bg-black text-white py-3 rounded-md hover:bg-purple-700 transition"
-                >
-                    ADD
-                </button>
-            </form>
-        </div>
-    );
-};
-
-export default AddProduct;
+          {/* Submit button */}
+          <button
+            type="submit"
+            className="col-span-2 bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
+          >
+            Add Product
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
