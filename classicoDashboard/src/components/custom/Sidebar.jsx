@@ -15,9 +15,9 @@ import useSidebarStore from "../../store/useSidebarStore";
 const navItems = [
     { to: "/", label: "Dashboard", icon: <LayoutDashboard size={22} aria-hidden="true" /> },
     { to: "/add-product", label: "Add Product", icon: <PlusSquare size={22} aria-hidden="true" /> },
-    { to: "/product-list", label: "Order List", icon: <List size={22} aria-hidden="true" /> },
-    { to: "/order-list", label: "Orders", icon: <ShoppingCart size={22} aria-hidden="true" /> },
-    { to: "/customer-info", label: "Customers", icon: <Users size={22} aria-hidden="true" /> },
+    { to: "/product-list", label: "Product List", icon: <List size={22} aria-hidden="true" /> },
+    { to: "/order-list", label: "Order List", icon: <ShoppingCart size={22} aria-hidden="true" /> },
+    { to: "/customer-info", label: "Customer Info", icon: <Users size={22} aria-hidden="true" /> },
 
 ];
 
