@@ -1,24 +1,23 @@
 // src/components/Sidebar.jsx
 import { NavLink } from "react-router-dom";
 import {
-    User,
-    Key,
-    RefreshCcw,
-    CheckCircle,
-    X,
+    LayoutDashboard,
+    PlusSquare,
+    ShoppingCart,
+    Users,
+    List,
+    X
 } from "lucide-react";
-import { ShieldUser } from 'lucide-react';
 
 import classicologo from "../../assets/classico3.jpg";
 import useSidebarStore from "../../store/useSidebarStore";
 
 const navItems = [
-    { to: "/", label: "Account Creation", icon: <User size={22} aria-hidden="true" /> },
-    { to: "/access-request", label: "Access Request", icon: <Key size={22} aria-hidden="true" /> },
-    { to: "/employee-transfer", label: "Employee Transfer", icon: <RefreshCcw size={22} aria-hidden="true" /> },
-    { to: "/employee-clearance", label: "Employee Clearance", icon: <CheckCircle size={22} aria-hidden="true" /> },
-     { to: "/dashboard", label: "Access Review", icon: <ShieldUser size={22} aria-hidden="true" /> },
-     
+    { to: "/", label: "Dashboard", icon: <LayoutDashboard size={22} aria-hidden="true" /> },
+    { to: "/add-product", label: "Add Product", icon: <PlusSquare size={22} aria-hidden="true" /> },
+    { to: "/orders", label: "Orders", icon: <ShoppingCart size={22} aria-hidden="true" /> },
+    { to: "/customers", label: "Customers", icon: <Users size={22} aria-hidden="true" /> },
+    { to: "/order-list", label: "Order List", icon: <List size={22} aria-hidden="true" /> },
 ];
 
 const Sidebar = () => {
@@ -49,14 +48,16 @@ const Sidebar = () => {
                 `}
             >
                 {/* Header */}
-                <div className={`
-                    flex items-center p-5 border-b border-gray-200
-                    ${isOpen ? "justify-between md:justify-center" : "justify-center"}
-                `}>
+                <div
+                    className={`
+                        flex items-center p-5 border-b border-gray-200
+                        ${isOpen ? "justify-between md:justify-center" : "justify-center"}
+                    `}
+                >
                     <div className="flex items-center gap-3">
                         <img
                             src={classicologo}
-                            alt="IDLC Logo"
+                            alt="Classico Logo"
                             className="w-10 h-10 object-contain"
                         />
                         {isOpen && (
