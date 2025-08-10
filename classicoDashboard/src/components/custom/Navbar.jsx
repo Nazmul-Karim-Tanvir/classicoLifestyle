@@ -1,5 +1,5 @@
 import { Menu } from "lucide-react";
-import useSidebarStore from "../store/useSidebarStore";
+import useSidebarStore from "../../store/useSidebarStore.jsx";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ onLoginClick }) => {
@@ -26,7 +26,7 @@ const Navbar = ({ onLoginClick }) => {
           </h1>
         </div>
 
-    
+
       </div>
     </header>
   );

@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Sidebar from "../components/custom/Sidebar";
+import Navbar from "../components/custom/Navbar.jsx";
+import Sidebar from "../components/custom/Sidebar.jsx";
 import useSidebarStore from "../store/useSidebarStore";
 import { useState } from "react";
 import LoginPopup from "../components/auth/LoginPopup";
