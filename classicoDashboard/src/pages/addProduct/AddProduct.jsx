@@ -64,7 +64,7 @@ const AddProduct = () => {
 
     return (
         <div className="max-w-full mx-auto p-4">
-            <h2 className="text-xl font-semibold mb-6 text-purple-900 text-center font-serif">
+            <h2 className="text-xl font-semibold mb-6 text-purple-900 text-center font-serif underline underline-offset-4">
                 Add New Product
             </h2>
 
@@ -76,7 +76,7 @@ const AddProduct = () => {
                 {/* Image Upload */}
                 <div>
                     <label className="block text-gray-700 font-medium mb-2">Product Image</label>
-                    <label className="cursor-pointer flex flex-col items-center justify-center border-2 border-dashed rounded-md h-32">
+                    <label className="cursor-pointer flex flex-col items-center justify-center border border-gray-400 border-dashed rounded-md h-32">
                         <input
                             type="file"
                             name="image"
@@ -110,7 +110,7 @@ const AddProduct = () => {
                             value={form.name}
                             onChange={handleChange}
                             required
-                            className="w-full border px-3 py-2 rounded-md"
+                            className="w-full border border-gray-400 px-3 py-2 rounded-md"
                         />
                     </div>
 
@@ -123,7 +123,7 @@ const AddProduct = () => {
                             value={form.productId}
                             onChange={handleChange}
                             required
-                            className="w-full border px-3 py-2 rounded-md"
+                            className="w-full border border-gray-400 px-3 py-2 rounded-md"
                         />
                     </div>
 
@@ -136,7 +136,7 @@ const AddProduct = () => {
                             value={form.price}
                             onChange={handleChange}
                             required
-                            className="w-full border px-3 py-2 rounded-md"
+                            className="w-full border border-gray-400 px-3 py-2 rounded-md"
                         />
                     </div>
 
@@ -148,7 +148,7 @@ const AddProduct = () => {
                             name="oldPrice"
                             value={form.oldPrice}
                             onChange={handleChange}
-                            className="w-full border px-3 py-2 rounded-md"
+                            className="w-full border border-gray-400 px-3 py-2 rounded-md"
                         />
                     </div>
 
@@ -161,7 +161,7 @@ const AddProduct = () => {
                             value={form.stock}
                             onChange={handleChange}
                             required
-                            className="w-full border px-3 py-2 rounded-md"
+                            className="w-full border border-gray-400 px-3 py-2 rounded-md"
                         />
                     </div>
 
@@ -173,7 +173,7 @@ const AddProduct = () => {
                             name="rating"
                             value={form.rating}
                             onChange={handleChange}
-                            className="w-full border px-3 py-2 rounded-md"
+                            className="w-full border border-gray-400 px-3 py-2 rounded-md"
                         />
                     </div>
                 </div>
@@ -187,7 +187,7 @@ const AddProduct = () => {
                         value={form.description}
                         onChange={handleChange}
                         required
-                        className="w-full border px-3 py-2 rounded-md h-24 resize-none"
+                        className="w-full border border-gray-400 px-3 py-2 rounded-md h-24 resize-none"
                     />
                 </div>
 
