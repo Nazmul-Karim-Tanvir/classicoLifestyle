@@ -1,3 +1,4 @@
+// classicoBackend\models\productModel.js
 import mongoose from 'mongoose';
 
 const productSchema = new mongoose.Schema({

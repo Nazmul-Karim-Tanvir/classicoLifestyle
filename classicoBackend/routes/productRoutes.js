@@ -1,3 +1,5 @@
+// classicoBackend\routes
+
 import express from 'express';
 import { addProduct, listProduct, removeProduct} from '../controllers/productController.js';
 import multer from 'multer';

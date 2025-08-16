@@ -1,3 +1,5 @@
+// classicoBackend\controllers\productController.js
+
 import productModel from '../models/productModel.js';
 import fs from 'fs';
 
