@@ -63,6 +63,49 @@ const listProduct = async (req, res) => {
   }
 };
 
+// update product
+const updateProduct = async (req, res) => {
+  try {
+    const { id } = req.body;
+    const product = await productModel.findById(id);
+    if (!product) {
+      return res.status(404).json({ success: false, message: "Product not found" });
+    }
+
+    // update regular fields
+    const fields = ["name", "description", "price", "oldPrice", "productId", "stock", "rating"];
+    fields.forEach(field => {
+      if (req.body[field] !== undefined) {
+        product[field] = req.body[field];
+      }
+    });
+
+    // update array fields safely
+    const arrayFields = ["category", "sizes", "colour", "tags"];
+    arrayFields.forEach(field => {
+      if (req.body[field] !== undefined) {
+        product[field] = Array.isArray(req.body[field])
+          ? req.body[field]
+          : JSON.parse(req.body[field] || "[]");
+      }
+    });
+
+    // if new image uploaded
+    if (req.file) {
+      // delete old image
+      if (product.image) fs.unlink(`uploads/${product.image}`, () => { });
+      product.image = req.file.filename;
+    }
+
+    await product.save();
+    res.json({ success: true, message: "Product updated successfully", product });
+
+  } catch (error) {
+    console.error("Error updating product:", error.message);
+    res.status(500).json({ success: false, message: "Error while updating product" });
+  }
+};
+
 // remove product
 const removeProduct = async (req, res) => {
   try {
@@ -82,4 +125,4 @@ const removeProduct = async (req, res) => {
   }
 }
 
-export { addProduct, listProduct, removeProduct };
+export { addProduct, listProduct, removeProduct, updateProduct };
