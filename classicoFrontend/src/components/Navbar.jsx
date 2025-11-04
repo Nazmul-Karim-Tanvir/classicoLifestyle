@@ -45,7 +45,7 @@ const Navbar = () => {
                 </Link>
 
                 {/* Nav Links - Desktop */}
-                <ul className="hidden md:flex gap-8 text-gray-700 text-3xl font-semibold lobster-regular">
+                <ul className="hidden md:flex gap-8 text-gray-500 text-2xl Serif">
                     {navLinks.map(link => (
                         <li key={link.path}>
                             <Link
@@ -73,7 +73,7 @@ const Navbar = () => {
 
                     {/* Cart */}
                     <Link to="/cart" className="relative text-gray-700">
-                        <ShoppingCart className="w-6 h-6 sm:w-8 sm:h-8 hover:text-blue-600" />
+                        <ShoppingCart className="w-6 h-6 sm:w-8 sm:h-8 hover:text-purple-600" />
                         {totalQuantity > 0 && (
                             <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full" style={{ minWidth: '18px', height: '18px' }}>
                                 {totalQuantity}
