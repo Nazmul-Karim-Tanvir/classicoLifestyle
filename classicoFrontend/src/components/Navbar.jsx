@@ -68,7 +68,7 @@ const Navbar = () => {
                             <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full" style={{ minWidth: '18px', height: '18px' }}>
                                 {totalQuantity1}
                             </span>
-                        )}
+                        )} 
                     </Link>
 
                     {/* Cart */}
@@ -89,7 +89,7 @@ const Navbar = () => {
                     ) : (
                         <Link
                             to="/signUp"
-                            className="text-sm font-medium text-black border border-gray-400 rounded-md px-3 py-1 hover:bg-black hover:text-white transition-colors duration-300"
+                            className="text-sm font-medium text-black border border-gray-400 rounded-md px-3 py-1 hover:bg-gradient-to-r from-purple-800 to-purple-600 hover:text-white transition-colors duration-300"
                         >
                             Sign In
                         </Link>
