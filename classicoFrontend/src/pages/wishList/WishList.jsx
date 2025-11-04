@@ -12,11 +12,11 @@ const WishList = () => {
     return (
         <div className="py-10">
             
-            <h2 className="text-xl font-semibold mb-12 text-center sm:text-left text-purple-700">Your Wishlist</h2>
+            <h2 className="text-xl font-semibold mb-12 text-center sm:text-left">Your Wishlist</h2>
             {/* Empty Wishlist View */}
             {wishListItems.length === 0 ? (
                 <div className="flex flex-col items-center justify-center text-center text-gray-500 py-20">
-                    <Heart size={80} className="mb-6 opacity-40 text-red-400" />
+                    <Heart size={80} className="mb-6 opacity-40 text-purple-400 hover:text-purple-700" />
                     <p className="text-xl font-semibold mb-2">Your wishlist is empty</p>
                     <p className="max-w-sm text-gray-400">
                         Looks like you haven&apos;t added anything to your wishlist yet.

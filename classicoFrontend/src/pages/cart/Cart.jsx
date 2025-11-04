@@ -21,7 +21,7 @@ const Cart = () => {
             {/* Empty Cart View */}
             {cartItems.length === 0 ? (
                 <div className="flex flex-col items-center justify-center text-center text-gray-500 py-20">
-                    <ShoppingCart size={80} className="mb-6 opacity-40" />
+                    <ShoppingCart size={80} className="mb-6 opacity-40 text-purple-400 hover:text-purple-700" />
                     <p className="text-xl font-semibold mb-2">Your cart is empty</p>
                     <p className="max-w-sm text-gray-400">
                         Looks like you haven&apos;t added anything yet. Start shopping and your cart will show up here.
