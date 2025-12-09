@@ -18,7 +18,7 @@ const SectionHero = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-purple-100 via-pink-50 to-white rounded-3xl mt-8 shadow-md">
+    <section className="relative overflow-hidden bg-gradient-to-br from-purple-100 via-pink-50 to-white rounded-3xl mt-8">
       <div className="grid grid-cols-1 md:grid-cols-2 items-center min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] xl:min-h-[750px]">
 
         {/* --- Text Area --- */}
