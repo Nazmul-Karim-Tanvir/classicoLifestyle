@@ -6,7 +6,7 @@ import logo from '/logo.jpg'; // Ensure path is correct
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-tr from-gray-900 via-black to-gray-900 text-white pt-12 pb-6">
-      <div className="max-w-[90%] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="max-w-[95%] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 
         {/* Logo & Description */}
         <div className="flex flex-col items-center text-center md:items-start md:text-left gap-4">
