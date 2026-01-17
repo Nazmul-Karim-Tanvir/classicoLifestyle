@@ -30,7 +30,7 @@ const Product = () => {
     const location = useLocation();
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [activeCategory, setActiveCategory] = useState('all');
-    const [perPage, setPerPage] = useState(10);
+    const [perPage, setPerPage] = useState(8);
     const [currentPage, setCurrentPage] = useState(1);
 
     // Handle URL query param to set category
@@ -118,16 +118,16 @@ const Product = () => {
                         onChange={handlePerPageChange}
                         className="border rounded px-2 py-1 text-sm"
                     >
-                        <option value={5}>5</option>
-                        <option value={10}>10</option>
-                        <option value={15}>15</option>
+                        <option value={4}>4</option>
+                        <option value={8}>8</option>
+                        <option value={12}>12</option>
                     </select>
                 </div>
             </div>
 
             {/* Product Grid */}
             {paginatedProducts.length > 0 ? (
-                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {paginatedProducts.map((product) => (
                         <ProductCard key={product.id} {...product} />
                     ))}

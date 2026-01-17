@@ -54,7 +54,7 @@ const ProductCard = ({
   return (
     <div
       onClick={goToDetail}
-      className="w-full max-w-xs bg-white rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden cursor-pointer"
+      className="w-full bg-white rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden cursor-pointer"
     >
       {/* Image */}
       <div className="relative h-48 bg-gray-100 flex items-center justify-center">
