@@ -45,7 +45,7 @@ const Navbar = () => {
                 </Link>
 
                 {/* Nav Links - Desktop */}
-                <ul className="hidden md:flex gap-8 text-gray-500 text-2xl Serif">
+                <ul className="hidden md:flex gap-8 text-gray-500 text-2xl font-serif font-medium tracking-wide">
                     {navLinks.map(link => (
                         <li key={link.path}>
                             <Link
@@ -89,7 +89,7 @@ const Navbar = () => {
                     ) : (
                         <Link
                             to="/signUp"
-                            className="text-sm font-medium text-black border border-gray-400 rounded-md px-3 py-1 hover:bg-gradient-to-r from-purple-800 to-purple-600 hover:text-white transition-colors duration-300"
+                            className="text-medium font-medium text-black border border-gray-400 rounded-md px-3 py-1 hover:bg-gradient-to-r from-purple-800 to-purple-600 hover:text-white transition-colors duration-300"
                         >
                             Sign In
                         </Link>
