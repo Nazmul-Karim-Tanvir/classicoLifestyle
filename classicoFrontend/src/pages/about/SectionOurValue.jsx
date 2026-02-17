@@ -23,13 +23,13 @@ const SectionOurValue = () => {
   return (
     <div className="my-24 text-center">
       <h2 className="text-3xl font-semibold text-purple-900 mb-12 font-serif">Our Core Values</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mx-auto my-14">
         {values.map((value, index) => (
           <div
             key={index}
             className="bg-purple-50 p-8 rounded-2xl shadow hover:shadow-lg transition duration-300 ease-in-out"
           >
-            <div className="flex flex-col items-center text-center">
+            <div className="flex flex-col items-center text-center my-8">
               {value.icon}
               <h3 className="text-xl font-bold text-purple-700 mb-2">{value.title}</h3>
               <p className="text-gray-700">{value.description}</p>

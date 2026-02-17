@@ -1,8 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, PhoneCall } from 'lucide-react';
+import Services from '../../components/Services';
 
 const Contact = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("Form Submitted");
+    };
     return (
         <div className="bg-white py-10 md:px-0 min-h-screen">
 
@@ -40,7 +45,9 @@ const Contact = () => {
 
                 {/* Right Side - 70% */}
                 <div className="w-full md:basis-[70%] bg-white p-6 rounded-md shadow-sm">
-                    <form className="flex flex-col gap-4">
+
+                    <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+
                         {/* 3 Inputs in a row */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <input
@@ -79,6 +86,7 @@ const Contact = () => {
                     </form>
                 </div>
             </div>
+            <div data-aos="fade-up"><Services /></div>
         </div>
     );
 };
