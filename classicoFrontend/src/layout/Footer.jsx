@@ -6,7 +6,7 @@ import logo from '/logo.jpg'; // Ensure path is correct
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-tr from-gray-900 via-black to-gray-900 text-white pt-12 pb-6">
-      <div className="max-w-[95%] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="max-w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 
         {/* Logo & Description */}
         <div className="flex flex-col items-center text-center md:items-start md:text-left gap-4">
@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
 
         {/* Social Media Icons */}
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center md:items-end md:text-right gap-4">
           <h3 className="text-lg font-semibold text-purple-400 mb-3">Follow Us</h3>
           <div className="flex gap-4">
             {[Facebook, Instagram, Twitter].map((Icon, idx) => (

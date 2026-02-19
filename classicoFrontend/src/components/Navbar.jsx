@@ -33,7 +33,7 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="max-w-[95%] mx-auto py-4 relative z-50">
+        <nav className="max-w-[90%] mx-auto py-4 relative z-50">
             <div className="flex items-center justify-between">
                 {/* Brand */}
                 <Link to="/" className="flex items-center">
@@ -68,7 +68,7 @@ const Navbar = () => {
                             <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full" style={{ minWidth: '18px', height: '18px' }}>
                                 {totalQuantity1}
                             </span>
-                        )} 
+                        )}
                     </Link>
 
                     {/* Cart */}

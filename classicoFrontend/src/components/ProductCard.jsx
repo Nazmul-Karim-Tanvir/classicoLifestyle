@@ -57,7 +57,7 @@ const ProductCard = ({
       className="w-full bg-white rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden cursor-pointer"
     >
       {/* Image */}
-      <div className="relative h-48 bg-gray-100 flex items-center justify-center">
+      <div className="relative h-48 bg-purple-50 flex items-center justify-center">
         <img src={image} alt={name} className="h-32 object-contain" />
         <button
           onClick={handleToggleWishList}
