@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
 
         {/* Social Media Icons */}
-        <div className="flex flex-col items-center text-center md:items-end md:text-right gap-4">
+        <div className="flex flex-col items-center text-center md:items-end md:text-right">
           <h3 className="text-lg font-semibold text-purple-400 mb-3">Follow Us</h3>
           <div className="flex gap-4">
             {[Facebook, Instagram, Twitter].map((Icon, idx) => (
